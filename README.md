@@ -15,7 +15,7 @@
 #### 2. Navigate to the project folder.
 
 ```bash
-    cd react-starter-project
+    cd tu-sofia-starter
 ```
 
 #### 3. Install the required dependencies.
