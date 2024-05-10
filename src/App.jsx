@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css'
+import './style/bootstrap.min.css';
 import Navbar from './components/Navbar';
 import List from './components/List';
 import Details from './components/Details';
@@ -8,18 +9,18 @@ import Footer from './components/Footer';
 const initialBooks = [
   {
     id: 1,
-    title: "1",
-    author: "1",
-    isbn: "1",
-    price: "1",
-    publicationDate: "Mon Aug 05 2022 09:00:00 GMT+0300 (Източноевропейско лятно часово време)",
+    title: "The Pale Horse",
+    author: "Agatha Christie",
+    isbn: "978-0-00-739572-9",
+    price: "13.50",
+    publicationDate: "Mon Jan 01 1961 09:00:00 GMT+0300 (Източноевропейско лятно часово време)",
   },
   {
     id: 2,
-    title: "2",
-    author: "2",
-    isbn: "2",
-    price: "2",
+    title: "The Book of Books",
+    author: "Author McWriter",
+    isbn: "999-9-99-999999-9",
+    price: "100.35",
     publicationDate: "Sun Jul 02 2023 03:00:00 GMT+0300 (Източноевропейско лятно часово време)",
   }
 ];
@@ -83,9 +84,18 @@ const App = () => {
   return (
     <div>
       <Navbar />
-      <List books={books} handleDelete={handleDelete} handleItemClick={handleItemClick} className="content-list"/>
-      <Details selectedBook={selectedBook} handleSave={handleSave} handleClear={handleClear} className="content-details" />
+        <div className='container'>
+          <div className="row justify-content-md-center">
+            <div className="col-5">
+              <List books={books} handleDelete={handleDelete} handleItemClick={handleItemClick} className="content-list"/>
+            </div>
+            <div className="col-4">
+              <Details selectedBook={selectedBook} handleSave={handleSave} handleClear={handleClear} className="content-details" />
+            </div>
+          </div>
+        </div>
       <Footer />
+      
     </div>
   );
 }
