@@ -18,7 +18,6 @@ const Details = ({ handleSave, handleClear, selectedBook }) => {
 
   const handleItemClick = (id) => {
     const clickedBook = books.find(book => book.id === id);
-    console.log(clickedBook);
     setSelectedBook(clickedBook);
   };
 
@@ -32,7 +31,7 @@ const Details = ({ handleSave, handleClear, selectedBook }) => {
 
   return (
     <div className="content-details">
-      <form onSubmit={handleSubmit} onChange={console.log(selectedBook)}>
+      <form onSubmit={handleSubmit}>
         <input type="text" id="field1" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title" />
         <input type="text" id="field2" value={author} onChange={(e) => setAuthor(e.target.value)} placeholder="Author" />
         <input type="text" id="field3" value={isbn} onChange={(e) => setIsbn(e.target.value)} placeholder="ISBN" />

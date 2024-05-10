@@ -55,7 +55,6 @@ const App = () => {
         }
         return book;
       });
-      console.log(updatedBooks);
       setBooks(updatedBooks);
       setSelectedBook(null); 
     } 
@@ -74,7 +73,6 @@ const App = () => {
   };
 
   const handleItemClick = (book) => {
-    console.log(book);
     setSelectedBook(book);
   };
 
