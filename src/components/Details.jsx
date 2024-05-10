@@ -32,12 +32,12 @@ const Details = ({ handleSave, handleClear, selectedBook }) => {
 
   return (
     <div className="content-details">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} onChange={console.log(selectedBook)}>
         <input type="text" id="field1" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title" />
         <input type="text" id="field2" value={author} onChange={(e) => setAuthor(e.target.value)} placeholder="Author" />
         <input type="text" id="field3" value={isbn} onChange={(e) => setIsbn(e.target.value)} placeholder="ISBN" />
         <input type="text" id="field4" value={price} onChange={(e) => setPrice(e.target.value) } placeholder="Price" />
-        <input type="text" id="field5" value={publicationDate} onChange={(e) => setPublicationDate(e.target.value)} placeholder="Publication Date" />
+        <input type="date" id="field5" value={publicationDate} onChange={(e) => setPublicationDate(e.target.value)} placeholder="Publication Date" />
         <button type="submit" id="saveButton">Save</button>
         <button type="button" id="clearButton" onClick={resetForm}>Clear</button>
       </form>

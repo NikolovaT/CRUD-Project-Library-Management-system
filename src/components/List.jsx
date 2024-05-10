@@ -1,10 +1,10 @@
 import React from 'react';
 
 const List = ({ books, handleDelete, handleItemClick }) => {
-  
+
   return (
     <div className="content-list">
-      <ul className="content-list">
+      <ul>
         {books.map(book => (
           <li key={book.id} onClick={() => handleItemClick(book)}>
             <p className="id">{book.id}</p>
