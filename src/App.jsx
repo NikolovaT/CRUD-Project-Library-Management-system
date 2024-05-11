@@ -52,7 +52,7 @@ const App = () => {
     if (selectedBook) {
       const updatedBooks = books.map(book => {
         if (book.id === selectedBook.id) {
-          return { ...book, ...newBook };
+          return { ...book, ...newBook, publicationDate: formatDate(newBook.publicationDate) };
         }
         return book;
       });
@@ -95,7 +95,6 @@ const App = () => {
           </div>
         </div>
       <Footer />
-      
     </div>
   );
 }
