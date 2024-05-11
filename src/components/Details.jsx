@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Details = ({ handleSave, handleClear, selectedBook }) => {
+const Details = ({ handleSave, selectedBook }) => {
   const [title, setTitle] = useState(selectedBook ? selectedBook.title : '');
   const [author, setAuthor] = useState(selectedBook ? selectedBook.author : '');
   const [isbn, setIsbn] = useState(selectedBook ? selectedBook.isbn : '');
@@ -14,11 +14,6 @@ const Details = ({ handleSave, handleClear, selectedBook }) => {
       return;
     }
     handleSave({ title, author, isbn, price, publicationDate });
-  };
-
-  const handleItemClick = (id) => {
-    const clickedBook = books.find(book => book.id === id);
-    setSelectedBook(clickedBook);
   };
 
   function resetForm() {
