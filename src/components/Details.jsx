@@ -1,12 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const Details = ({ handleSave, selectedBook }) => {
-  const [title, setTitle] = useState(selectedBook ? selectedBook.title : '');
-  const [author, setAuthor] = useState(selectedBook ? selectedBook.author : '');
-  const [isbn, setIsbn] = useState(selectedBook ? selectedBook.isbn : '');
-  const [price, setPrice] = useState(selectedBook ? selectedBook.price : '');
-  const [publicationDate, setPublicationDate] = useState(selectedBook ? selectedBook.publicationDate : '');
+const Details = ({ handleSave, selectedBook, formatDate }) => {
+  const [title, setTitle] = useState("");
+  const [author, setAuthor] = useState("");
+  const [isbn, setIsbn] = useState("");
+  const [price, setPrice] = useState("");
+  const [publicationDate, setPublicationDate] = useState('');
 
+  useEffect(() => {
+    if (selectedBook) {
+      setTitle(selectedBook.title);
+      setAuthor(selectedBook.author);
+      setIsbn(selectedBook.isbn);
+      setPrice(selectedBook.price);
+      setPublicationDate(formatDate(selectedBook.publicationDate));
+    }
+  }, [selectedBook]);
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!title || !author || !isbn || !price || !publicationDate) {

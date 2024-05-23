@@ -13,7 +13,7 @@ const initialBooks = [
     author: "Agatha Christie",
     isbn: "978-0-00-739572-9",
     price: "13.50",
-    publicationDate: "Mon Jan 01 1961 09:00:00 GMT+0300 (Източноевропейско лятно часово време)",
+    publicationDate: "Sun Jan 01 1961 09:00:00 GMT+0300 (Източноевропейско лятно часово време)",
   },
   {
     id: 2,
@@ -28,11 +28,6 @@ const initialBooks = [
 const App = () => {
   const [books, setBooks] = useState(initialBooks);
   const [selectedBook, setSelectedBook] = useState(null);
-  
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setSelectedBook({ ...selectedBook, [name]: value });
-  };
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -46,7 +41,7 @@ const App = () => {
     const timeZoneOffsetString = (timeZoneOffset >= 0 ? '+' : '') + timeZoneOffset.toString().padStart(2, '0') + '00';
 
     return `${['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][date.getDay()]} ${['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][date.getMonth()]} ${day} ${year} ${hours}:${minutes}:${seconds} GMT${timeZoneOffsetString} (Източноевропейско лятно часово време)`;
-  };
+  };  
 
   const handleSave = (newBook) => {
     if (selectedBook) {
@@ -90,7 +85,7 @@ const App = () => {
               <List books={books} handleDelete={handleDelete} handleItemClick={handleItemClick} className="content-list"/>
             </div>
             <div className="col-4">
-              <Details selectedBook={selectedBook} handleSave={handleSave} handleClear={handleClear} className="content-details" />
+              <Details selectedBook={selectedBook} handleSave={handleSave} handleClear={handleClear} formatDate={formatDate} className="content-details" />
             </div>
           </div>
         </div>
